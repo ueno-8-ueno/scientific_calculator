@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関数電卓</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculatorArea">
+        <div id="formula"></div>
+
+        <table>
+            <tr><button id="b1">1</button></tr>
+            <tr><button id="b2">2</button></tr>
+            <tr><button id="b3">3</button></tr>
+            <tr><button class="eraser" id="backSpace">DEL</button></tr>
+            <tr><button class="eraser" id="allClear">AC</button></tr>
+        </table>
+
+        <table>
+            <tr><button id="b4">4</button></tr>
+            <tr><button id="b5">5</button></tr>
+            <tr><button id="b6">6</button></tr>
+    
+            <tr><button class="operator" id="sum">+</button></tr>
+            <tr><button class="operator" id="diff">-</button></tr>
+            <tr><button class="operator" id="mult">×</button></tr>
+            <tr><button class="operator" id="divi">÷</button></tr>
+        </table>
+
+        <table>
+            <tr><button id="b7">7</button></tr>
+            <tr><button id="b8">8</button></tr>
+            <tr><button id="b9">9</button></tr>
+
+            <tr><button class="function" id="b_parenthesesLeft">(</button></tr>
+            <tr><button class="function" id="b_parenthesesRight">)</button></tr>
+            <tr><button class="function" id="exp">^</button></tr>
+            <tr><button class="function" id="sqrt">√</button></tr>
+            <tr><button class="function" id="cbrt">∛</button></tr>
+        </table>
+
+        <table>
+            <tr><button id="b0">0</button></tr>
+            <tr><button id="point">.</button></tr>
+            <tr><button id="equals">＝</button></tr>
+        </table>
+    </div>
+
+    <div class="attentionArea">
+        <h3 class="attentionHeader">関数電卓を使う際の注意点</h3>
+        <ul>
+            <li>
+                「DEL」で1文字消去、「AC」で全消去できます。
+            </li>
+            <li>
+                「＝」を押すことで結果を出力できます。
+            </li>
+            <li>
+                長すぎる式は入力できません(約40文字まで)。
+            </li>
+            <li>
+                累乗や根号、関数等の中で更に式を記入したい場合は、<br>
+                「()」を使ってください。<br>
+                【例】根号の中で2+2を計算したい場合<br>
+                　　√2+2 = 3.4142135... →NG<br>
+                　　√(2+2) = 2          →OK
+            </li>
+        </ul>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

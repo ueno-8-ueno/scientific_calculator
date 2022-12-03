@@ -1,0 +1,52 @@
+body{
+    padding: 10px;
+    background-color: #e0f0f6;
+    width: 500px; /*表示する幅を設定*/
+    margin-right: auto; /*右側のマージンを自動調節*/
+    margin-left: auto; /*左側のマージンを自動調節*/
+}
+
+.calculatorArea{
+    background-color: rgb(200, 200, 200);
+}
+
+table{
+    table-layout: fixed;
+}
+tr{
+    width: 1px;
+    height: 1px;
+}
+
+#formula{
+    height: 100px;
+    border: solid 1px rgb(88,88,88);
+    background-color: #e4e4e4;
+}
+
+button{
+    width: 50px;
+    height: 40px;
+}
+#equals{
+    color: white;
+    background-color: black;
+}
+.eraser{
+    background-color: coral;
+}
+.operator{
+    font-size: 15px;
+    background-color: cornflowerblue;
+}
+.function{
+    background-color: aqua;
+}
+
+.attentionArea{
+    background-color: rgb(255, 252, 199);
+}
+.attentionHeader{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0 ,0, 0);
+}
