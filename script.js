@@ -82,6 +82,18 @@ b_point.onclick = function(){
     showFormula();
     limitFormula();
 };
+const b_pai = document.getElementById('pai'); //π
+b_pai.onclick = function(){
+    formula.push("π");
+    showFormula();
+    limitFormula();
+};
+const b_e = document.getElementById('napier'); //e
+b_e.onclick = function(){
+    formula.push("e");
+    showFormula();
+    limitFormula();
+};
 
 const b_backSpace = document.getElementById('backSpace'); //バックスペース
 b_backSpace.onclick = function(){
@@ -127,12 +139,50 @@ b_exp.onclick = function(){
 const b_sqrt = document.getElementById('sqrt'); //二乗根
 b_sqrt.onclick = function(){
     formula.push('√');
+    formula.push("(");
     showFormula();
     limitFormula();
 };
 const b_cbrt = document.getElementById('cbrt'); //三乗根
 b_cbrt.onclick = function(){
     formula.push('∛');
+    formula.push("(");
+    showFormula();
+    limitFormula();
+};
+
+const b_sin = document.getElementById('sin'); //sin
+b_sin.onclick = function(){
+    formula.push('sin');
+    formula.push("(");
+    showFormula();
+    limitFormula();
+};
+const b_cos = document.getElementById('cos'); //cos
+b_cos.onclick = function(){
+    formula.push('cos');
+    formula.push("(");
+    showFormula();
+    limitFormula();
+};
+const b_tan = document.getElementById('tan'); //tan
+b_tan.onclick = function(){
+    formula.push('tan');
+    formula.push("(");
+    showFormula();
+    limitFormula();
+};
+const b_ln = document.getElementById('ln'); //log_e
+b_ln.onclick = function(){
+    formula.push('ln');
+    formula.push("(");
+    showFormula();
+    limitFormula();
+};
+const b_log10 = document.getElementById('log10'); //log10
+b_log10.onclick = function(){
+    formula.push('log10');
+    formula.push("(");
     showFormula();
     limitFormula();
 };
@@ -204,6 +254,22 @@ function calcFormula(){
                 value[operatorCount] = 10*value[operatorCount] + chr;
             }
         }
+        else if(chr=='π'){
+            if(value[operatorCount] != 0){
+                value[operatorCount] = value[operatorCount] * Math.PI;
+            }
+            else{
+                value[operatorCount] = Math.PI;
+            }
+        }
+        else if(chr=='e'){
+            if(value[operatorCount] != 0){
+                value[operatorCount] = value[operatorCount] * Math.exp(1);
+            }
+            else{
+                value[operatorCount] = Math.exp(1);
+            }
+        }
         else if(chr=='+' || chr=='-' || chr=='×' || chr=='÷' || chr=='^'){ //演算子の場合
             operator[operatorCount] = chr;
             if(chr=='+' || chr=='-'){ //優先度設定
@@ -218,7 +284,7 @@ function calcFormula(){
             operatorCount++;
             value[operatorCount] = 0;
         }
-        else if(chr=='√'||chr=='∛'){ //関数系の場合
+        else if(chr=='√'||chr=='∛'||chr=="sin"||chr=="cos"||chr=="tan"||chr=="ln"||chr=="log10"){ //関数系の場合
             operator[operatorCount] = chr;
             priority[operatorCount] = nest+10000;
             operatorCount++;
@@ -276,6 +342,22 @@ function calcFormula(){
                 break;
             case '∛':
                 value[ip] = Math.cbrt(value[ip+1]);
+                break;
+            case "sin":
+                value[ip] = calcTriFunc("sin",value[ip+1]);
+                break;
+            case "cos":
+                value[ip] = calcTriFunc("cos",value[ip+1]);
+                break;
+            case "tan":
+                value[ip] = calcTriFunc("tan",value[ip+1]);
+                break;
+            case "ln":
+                value[ip] = Math.log(value[ip+1]);
+                break;
+            case "log10":
+                value[ip] = Math.log10(value[ip+1]);
+                break;
         }
         
         for(let i=ip+1; i<=operatorCount; i++){
@@ -295,3 +377,34 @@ function calcFormula(){
     //答えを返却
     return value[0];
 }
+
+
+/*
+ *三角関数を計算する関数
+ *
+ *kindOfにsin,cos,tanを指定
+ *angleに角度を指定
+ */
+let angleRadio = document.getElementsByName('angle');
+angleRadio[0].checked = true;
+
+function calcTriFunc(kindOf,angle){
+    let result = 0;
+    let radian = angle;
+    if (angleRadio.item(1).checked){ //度数法ならばラジアンに直す
+        radian = angle * Math.PI /180;
+    }
+    switch(kindOf){
+        case "sin" :
+            result = Math.sin(radian);
+            break;
+        case "cos" :
+            result = Math.cos(radian);
+            break;
+        case "tan" :
+            result = Math.tan(radian);
+            break;
+    }
+    return result;
+}
+  

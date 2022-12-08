@@ -2,14 +2,6 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-
-    <!--OGPの設定-->
-    <meta name="twitter:card" content="summary">
-    <meta property="og:url" content="https://ueno-8-ueno.github.io/scientific_calculator/">
-    <meta property="og:title" content="関数電卓">
-    <meta property="og:description" content="関数電卓を作ってみました。機能は随時追加予定。">
-    <meta property="og:image" content="/img/OGP_img">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>関数電卓</title>
@@ -18,6 +10,11 @@
 <body>
     <div class="calculatorArea">
         <div id="formula"></div>
+
+        <table>
+            <label><input type="radio" name="angle" value="radian">radian</label>
+            <label><input type="radio" name="angle" value="degree">degree</label>
+        </table>
 
         <table>
             <tr><button id="b1">1</button></tr>
@@ -43,17 +40,28 @@
             <tr><button id="b8">8</button></tr>
             <tr><button id="b9">9</button></tr>
 
-            <tr><button class="function" id="b_parenthesesLeft">(</button></tr>
-            <tr><button class="function" id="b_parenthesesRight">)</button></tr>
             <tr><button class="function" id="exp">^</button></tr>
             <tr><button class="function" id="sqrt">√</button></tr>
             <tr><button class="function" id="cbrt">∛</button></tr>
+            <tr><button class="function" id="pai">π</button></tr>
+            <tr><button class="function" id="napier">e</button></tr>
         </table>
 
         <table>
             <tr><button id="b0">0</button></tr>
             <tr><button id="point">.</button></tr>
             <tr><button id="equals">＝</button></tr>
+
+            <tr><button class="function" id="sin">sin</button></tr>
+            <tr><button class="function" id="cos">cos</button></tr>
+            <tr><button class="function" id="tan">tan</button></tr>
+            <tr><button class="function" id="ln">ln</button></tr>
+            <tr><button class="function" id="log10">log10</button></tr>
+        </table>
+
+        <table>
+            <tr><button id="b_parenthesesLeft">(</button></tr>
+            <tr><button id="b_parenthesesRight">)</button></tr>
         </table>
     </div>
 
@@ -72,13 +80,8 @@
             <li>
                 累乗や根号、関数等の中で更に式を記入したい場合は、<br>
                 「()」を使ってください。<br>
-                【例】根号の中で2+2を計算したい場合<br>
-                　　√2+2 = 3.4142135... →NG<br>
-                　　√(2+2) = 2          →OK
-            </li>
-            <li>
-                根号など、計算の手順によっては誤差が生じる場合があります。<br>
-                【例】√5×√5 = 5ではなく5.000...001となったりします。
+                【例】√2+2 = 3.4142135... →NG<br>
+                　　 √(2+2) = 2          →OK
             </li>
         </ul>
     </div>

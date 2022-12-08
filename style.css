@@ -27,6 +27,7 @@ tr{
 button{
     width: 50px;
     height: 40px;
+    background-color: #e4e4e4;
 }
 #equals{
     color: white;
