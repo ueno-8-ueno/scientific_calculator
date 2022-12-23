@@ -191,7 +191,7 @@ const b_equals = document.getElementById('equals'); //計算処理(=)
 b_equals.onclick = function(){
     let answer = calcFormula();
     showFormula();
-    showFormulaDiv.append('= ' + answer);
+    showFormulaDiv.append('= ' + comma(answer));
 };
 //以上がボタンエリア
 
@@ -404,6 +404,18 @@ function calcTriFunc(kindOf,angle){
         case "tan" :
             result = Math.tan(radian);
             break;
+    }
+    return result;
+}
+
+/*
+ *正規表現で3桁ごとにコンマ区切りにする関数 
+ */
+function comma(num){
+    let string = String(num).split('.');
+    let result = String(string[0]).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+    if(string.length > 1){ //小数部があるなら
+        result += '.' + string[1];
     }
     return result;
 }
