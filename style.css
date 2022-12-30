@@ -18,6 +18,20 @@ tr{
     height: 1px;
 }
 
+.angleSelect{
+    background-color: #fff9f9;
+    border: solid 1px rgb(88,88,88);
+    
+}
+.roundSelect{
+    background-color: #fff9f9;
+    border: solid 1px rgb(88,88,88);
+}
+#round{
+    width: 30px;
+    height: 20px;
+}
+
 #formula{
     height: 100px;
     border: solid 1px rgb(88,88,88);
@@ -48,6 +62,14 @@ button{
     background-color: rgb(255, 252, 199);
 }
 .attentionHeader{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0 ,0, 0);
+}
+
+.optionArea{
+        background-color: rgb(255, 252, 199);
+}
+.optionHeader{
     color: rgb(255, 255, 255);
     background-color: rgb(0 ,0, 0);
 }

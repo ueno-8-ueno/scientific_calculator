@@ -188,9 +188,13 @@ b_log10.onclick = function(){
 };
 
 const b_equals = document.getElementById('equals'); //計算処理(=)
+const roundButton = document.getElementsByName('roundButton');
 b_equals.onclick = function(){
     let answer = calcFormula();
     showFormula();
+    if(roundButton[0].checked){
+        answer = roundOff(answer);
+    }
     showFormulaDiv.append('= ' + comma(answer));
 };
 //以上がボタンエリア
@@ -418,5 +422,21 @@ function comma(num){
         result += '.' + string[1];
     }
     return result;
+}
+
+/**
+ * 結果を四捨五入する関数
+ * 
+ * roundで入力された桁数を読み取り
+ * baseに重みを保存
+ * 引数で与えられたvalueをbaseによって四捨五入する
+ */
+function roundOff(result){
+    let round = document.getElementById('round');
+    let base = 1;
+    if(round.value.length != 0){
+        base = 10 ** (round.value-1);
+    }
+    return Math.round(result * base)/base;
 }
   

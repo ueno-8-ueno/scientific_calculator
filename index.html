@@ -11,10 +11,19 @@
     <div class="calculatorArea">
         <div id="formula"></div>
 
+        <div class="angleSelect">
         <table>
             <label><input type="radio" name="angle" value="radian">radian</label>
             <label><input type="radio" name="angle" value="degree">degree</label>
         </table>
+        </div>
+
+        <div class="roundSelect">
+            <table>
+                <label><input type="checkbox" name="roundButton">小数点第</label>
+                <label><input type="number" id="round" maxlength="2">位を四捨五入</label>
+            </table>
+        </div>
 
         <table>
             <tr><button id="b1">1</button></tr>
@@ -82,6 +91,19 @@
                 「()」を使ってください。<br>
                 【例】√2+2 = 3.4142135... →NG<br>
                 　　 √(2+2) = 2          →OK
+            </li>
+        </ul>
+    </div>
+
+    <div class="optionArea">
+        <h3 class="optionHeader">関数電卓のオプションについて</h3>
+        <ul>
+            <li>
+                三角関数を使う際に、radian(弧度法)、degree(度数法)のいずれかを選べます。
+            </li>
+            <li>
+                四捨五入オプションを使用する際はチェックボックスを選択してください。<br>
+                また小数点第何位を四捨五入するかも選べます。
             </li>
         </ul>
     </div>
